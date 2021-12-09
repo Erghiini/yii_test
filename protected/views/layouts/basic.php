@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistem Informasi Klinik</title>
+    <link rel="icon" href="<?= $baseUrl ?>/assets/dist/img/AdminLTELogo.png" type="image/x-icon">
     <meta name="description" content="Sistem Informasi Klinik, Created by: Erghi Imannur Ichsan">
 
     <!-- Google Font: Source Sans Pro -->
