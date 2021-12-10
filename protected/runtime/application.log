@@ -3811,3 +3811,23 @@ Stack trace:
 REQUEST_URI=/yii_test/laporan
 in C:\xampp\htdocs\yii_test\protected\controllers\LaporanController.php (11)
 in C:\xampp\htdocs\yii_test\index.php (13)
+2021/12/10 16:38:44 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "getDataPengunjung". in C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php(270): CController->missingAction('getDataPengunju...')
+#1 C:\xampp\htdocs\yii_test\yii-1\framework\web\CWebApplication.php(282): CController->run('getDataPengunju...')
+#2 C:\xampp\htdocs\yii_test\yii-1\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/getDa...')
+#3 C:\xampp\htdocs\yii_test\yii-1\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii_test\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_test/dashboard/getDataPengunjung
+---
+2021/12/10 16:41:14 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "getDataPengunjung". in C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php(270): CController->missingAction('getDataPengunju...')
+#1 C:\xampp\htdocs\yii_test\yii-1\framework\web\CWebApplication.php(282): CController->run('getDataPengunju...')
+#2 C:\xampp\htdocs\yii_test\yii-1\framework\web\CWebApplication.php(141): CWebApplication->runController('dashboard/getDa...')
+#3 C:\xampp\htdocs\yii_test\yii-1\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\yii_test\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii_test/dashboard/getDataPengunjung
+---
