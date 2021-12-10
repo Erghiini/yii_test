@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2021 pada 16.12
+-- Waktu pembuatan: 10 Des 2021 pada 16.37
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.2.27
 
@@ -2624,6 +2624,14 @@ CREATE TABLE `pegawai` (
   `updated_date` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `pegawai`
+--
+
+INSERT INTO `pegawai` (`pegawai_id`, `pegawai_nik`, `pegawai_nama`, `pegawai_alamat`, `pegawai_telp`, `pegawai_tempatLahir`, `pegawai_tglLahir`, `pegawai_jk`, `created_date`, `updated_date`) VALUES
+(2, '98276', 'Jajang', 'Jl. Kampung lama blok c no 17', '0813212311232', 'Purwakarta', '1994-07-07', 'L', '2021-12-10 11:40:08', '2021-12-10 14:20:13'),
+(3, '367364456765', 'Supri', 'Di mana saja', '0887766554', 'Cibabat', '2018-01-10', 'L', '2021-12-10 14:38:51', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -2716,7 +2724,7 @@ CREATE TABLE `tindakan` (
 --
 
 INSERT INTO `tindakan` (`tindakan_id`, `tindakan_kode`, `tindakan_nama`, `created_date`, `updated_date`) VALUES
-(1, '', 'EKSISI CLAVUS', '2021-12-06 13:50:07', NULL),
+(1, '', 'Rujukan', '2021-12-06 13:50:07', '2021-12-10 14:30:25'),
 (2, '', 'Istirahat cukup', '2021-12-08 14:13:10', NULL),
 (3, '', 'Pengobatan Dengan Obat-obatan', '2021-12-08 22:49:34', NULL);
 
@@ -2785,7 +2793,29 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `user_password`, `user_level`, `created_date`, `updated_date`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 0, '2021-12-09 13:42:58', NULL);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 0, '2021-12-09 13:42:58', NULL),
+(4, 'wulan', '202cb962ac59075b964b07152d234b70', 1, '2021-12-10 13:04:30', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `wilayah`
+--
+
+CREATE TABLE `wilayah` (
+  `wilayah_id` int(11) NOT NULL,
+  `wilayah_nama` varchar(100) NOT NULL,
+  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_date` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `wilayah`
+--
+
+INSERT INTO `wilayah` (`wilayah_id`, `wilayah_nama`, `created_date`, `updated_date`) VALUES
+(1, 'pasteur', '2021-12-10 14:15:18', NULL),
+(3, 'CIBATU', '2021-12-10 14:37:44', NULL);
 
 --
 -- Indexes for dumped tables
@@ -2858,6 +2888,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indeks untuk tabel `wilayah`
+--
+ALTER TABLE `wilayah`
+  ADD PRIMARY KEY (`wilayah_id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -2883,7 +2919,7 @@ ALTER TABLE `pasien`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pembayaran`
@@ -2925,7 +2961,13 @@ ALTER TABLE `tindakanobat_detail`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `wilayah`
+--
+ALTER TABLE `wilayah`
+  MODIFY `wilayah_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

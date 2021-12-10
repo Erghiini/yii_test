@@ -1,7 +1,7 @@
 <?php
-    $baseUrl    = Yii::app()->request->baseUrl;
-    $controller = Yii::app()->controller->id;
-    $session    = Yii::app()->session;
+$baseUrl    = Yii::app()->request->baseUrl;
+$controller = Yii::app()->controller->id;
+$session    = Yii::app()->session;
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +40,8 @@
     <script src="<?= $baseUrl ?>/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="<?= $baseUrl ?>/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <script src="<?= $baseUrl ?>/assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <!-- ChartJS -->
+    <script src="<?= $baseUrl ?>/assets/plugins/chart.js/Chart.min.js"></script>
 
     <!-- AdminLTE App -->
     <script src="<?= $baseUrl ?>/assets/dist/js/adminlte.min.js"></script>
@@ -76,7 +78,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="<?= $baseUrl ?>/assets/index3.html" class="brand-link">
+            <a href="<?= $baseUrl ?>/profile" class="brand-link">
                 <img src="<?= $baseUrl ?>/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"><?= $session['username'] ?></span>
             </a>
@@ -90,7 +92,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/dashboard" class="nav-link <?= $controller == 'dashboard' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/dashboard" class="nav-link <?= strtolower($controller) == 'dashboard' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -101,24 +103,27 @@
                         <li class="nav-header">
                             MASTER
                         </li>
+                        <?php if ($session['userlevel'] != 0): ?>
+                            <li class="nav-item">
+                                <a href="<?= $baseUrl ?>/wilayah" class="nav-link <?= strtolower($controller) == 'wilayah' ? 'active' : '' ?>">
+                                    <i class="nav-icon fas fa-map-marked-alt"></i>
+                                    <p>
+                                        Wilayah
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= $baseUrl ?>/user" class="nav-link <?= strtolower($controller) == 'user' ? 'active' : '' ?>">
+                                    <i class="nav-icon fas fa-user-tie"></i>
+                                    <p>
+                                        User
+                                    </p>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/wilayah" class="nav-link">
-                                <i class="nav-icon fas fa-map-marked-alt"></i>
-                                <p>
-                                    Wilayah
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-user-tie"></i>
-                                <p>
-                                    User
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/pegawai" class="nav-link <?= $controller == 'pegawai' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/pegawai" class="nav-link <?= strtolower($controller) == 'pegawai' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-hospital-user"></i>
                                 <p>
                                     Pegawai
@@ -126,7 +131,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/poli" class="nav-link <?= $controller == 'poli' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/poli" class="nav-link <?= strtolower($controller) == 'poli' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-microscope"></i>
                                 <p>
                                     Poli
@@ -134,7 +139,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/dokter" class="nav-link <?= $controller == 'dokter' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/dokter" class="nav-link <?= strtolower($controller) == 'dokter' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-user-md"></i>
                                 <p>
                                     Dokter
@@ -142,7 +147,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/tindakan" class="nav-link <?= $controller == 'tindakan' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/tindakan" class="nav-link <?= strtolower($controller) == 'tindakan' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-briefcase-medical"></i>
                                 <p>
                                     Tindakan
@@ -150,7 +155,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/obat" class="nav-link <?= $controller == 'obat' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/obat" class="nav-link <?= strtolower($controller) == 'obat' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-pills"></i>
                                 <p>
                                     Obat
@@ -163,7 +168,7 @@
                             PASIEN
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/pasien" class="nav-link <?= $controller == 'pasien' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/pasien" class="nav-link <?= strtolower($controller) == 'pasien' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Data Pasien
@@ -171,7 +176,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/pendaftaran" class="nav-link <?= $controller == 'pendaftaran' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/pendaftaran" class="nav-link <?= strtolower($controller) == 'pendaftaran' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-clipboard"></i>
                                 <p>
                                     Pendaftaran
@@ -179,7 +184,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/tindakanobat" class="nav-link <?= $controller == 'tindakanobat' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/tindakanobat" class="nav-link <?= strtolower($controller) == 'tindakanobat' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-stethoscope"></i>
                                 <p>
                                     Tindakan & Obat
@@ -187,7 +192,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/pembayaran" class="nav-link <?= $controller == 'pembayaran' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/pembayaran" class="nav-link <?= strtolower($controller) == 'pembayaran' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-file-invoice-dollar"></i>
                                 <p>
                                     Pembayaran Pasien
@@ -195,7 +200,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= $baseUrl ?>/wilayah" class="nav-link <?= strtolower($controller) == 'laporan' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-chart-bar"></i>
                                 <p>
                                     Laporan
@@ -246,10 +251,12 @@
                                 0%
                             </div>
                         </div>
+                        <small class="text-red" id="alert-message" style="display: none;"></small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>

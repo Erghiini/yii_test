@@ -36,25 +36,25 @@
                 	<div class="col-lg-4">
                         <div class="form-group">
                             <label>NIK Pegawai</label>
-                            <input type="text" name="pegawai_nik" placeholder="Contoh: 1234567890123456" class="form-control" pattern="[0-9]+" maxlength="16" autofocus required>
+                            <input type="text" name="pegawai_nik" placeholder="Contoh: 1234567890123456" class="form-control" pattern="[0-9]+" maxlength="16" minlength="16" autofocus required>
                         </div>
                 	</div>
                 	<div class="col-lg-4">
                         <div class="form-group">
                             <label>Nama Pegawai</label>
-                            <input type="text" name="pegawai_nama" placeholder="Contoh: Asep" class="form-control" pattern="[a-zA-Z .]+" maxlength="100" required>
+                            <input type="text" name="pegawai_nama" placeholder="Contoh: Asep" class="form-control" pattern="[a-zA-Z .]+" maxlength="100" minlength="2" required>
                         </div>
                 	</div>
                 	<div class="col-lg-4">
                         <div class="form-group">
                             <label>Nomor Telpon</label>
-                            <input type="text" name="pegawai_telp" placeholder="Contoh: 081234567890" class="form-control" pattern="[0-9]+" maxlength="13" required>
+                            <input type="text" name="pegawai_telp" placeholder="Contoh: 081234567890" class="form-control" pattern="[0-9]+" maxlength="13" minlength="10" required>
                         </div>
                 	</div>
                 	<div class="col-lg-4">
                         <div class="form-group">
                             <label>Tempat Lahir</label>
-                            <input type="text" name="pegawai_tempatLahir" placeholder="Contoh: Bandung" class="form-control" pattern="[a-zA-Z .]+" maxlength="50" required>
+                            <input type="text" name="pegawai_tempatLahir" placeholder="Contoh: Bandung" class="form-control" pattern="[a-zA-Z .]+" maxlength="50" minlength="5" required>
                         </div>
                 	</div>
                 	<div class="col-lg-4">
@@ -75,7 +75,7 @@
                 	<div class="col-lg-12">
                         <div class="form-group">
                             <label>Alamat</label>
-                            <textarea name="pegawai_alamat" class="form-control" rows="4" required style="resize: none;"></textarea>
+                            <textarea name="pegawai_alamat" class="form-control" rows="4" required style="resize: none;" require></textarea>
                         </div>
                 	</div>
                 </div>

@@ -35,4 +35,14 @@ class TindakanController extends Controller
 		$this->layout = 'basic';
 		$this->render('edit', $data);
 	}
+
+	public function actionEdit_action()
+	{
+		if (!$_POST) exit('Data not available!');
+
+		$data = Tindakan::model()->validateTindakanNamaById();
+		if ($data['jml'] > 0) exit('Nama Tindakan sudah terdaftar');
+
+		$result = Tindakan::model()->edit_action();
+	}
 }

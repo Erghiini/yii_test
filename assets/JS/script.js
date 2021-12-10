@@ -6,6 +6,7 @@ function formSubmit(self){
     if (confirm('Data sudah benar?')) {
 	    var bar          = $('#ModalProgress .progress-bar');
         var textProgress = $('#ModalProgress .progress-text');
+        var alertMessage = $('#ModalProgress #alert-message');
     	let formData     = new FormData(self);
         let action       = $(self).attr('action');
 
@@ -40,6 +41,8 @@ function formSubmit(self){
 				bar.addClass('progress-bar-striped');
                 bar.text('0%');
                 bar.width('0%');
+                alertMessage.text('');
+                alertMessage.hide();
                 $('#ModalProgress').modal('show');
             },
     		success: function(data, textStatus, xhr) {
@@ -59,7 +62,8 @@ function formSubmit(self){
                         textProgress.text('Gagal');
                         bar.addClass('bg-danger');
     					bar.text('error');
-        				console.log(data);
+                        alertMessage.text(data);
+                        alertMessage.show();
     				}
                     bar.removeClass('progress-bar-striped');
     			}

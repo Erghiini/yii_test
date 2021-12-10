@@ -94,91 +94,13 @@ class Pendaftaran extends CActiveRecord
         return Yii::app()->db->createCommand($query)->query();
     }
 
-
-	//
-	// /**
-	//  * @return string the associated database table name
-	//  */
-	// public function tableName()
-	// {
-	// 	return 'pendaftaran';
-	// }
-	//
-	// /**
-	//  * @return array validation rules for model attributes.
-	//  */
-	// public function rules()
-	// {
-	// 	// NOTE: you should only define rules for those attributes that
-	// 	// will receive user inputs.
-	// 	return array(
-	// 		array('pendaftaran_nama, pendaftaran_tempatLahir, pendaftaran_tglLahir, pendaftaran_alamat, created_date', 'required'),
-	// 		array('pendaftaran_nama, pendaftaran_tempatLahir', 'length', 'max'=>100),
-	// 		array('pendaftaran_alamat', 'length', 'max'=>500),
-	// 		array('updated_date', 'safe'),
-	// 		// The following rule is used by search().
-	// 		// @todo Please remove those attributes that should not be searched.
-	// 		array('pendaftaran_id, pendaftaran_nama, pendaftaran_tempatLahir, pendaftaran_tglLahir, pendaftaran_alamat, created_date, updated_date', 'safe', 'on'=>'search'),
-	// 	);
-	// }
-	//
-	// /**
-	//  * @return array relational rules.
-	//  */
-	// public function relations()
-	// {
-	// 	// NOTE: you may need to adjust the relation name and the related
-	// 	// class name for the relations automatically generated below.
-	// 	return array(
-	// 	);
-	// }
-	//
-	// /**
-	//  * @return array customized attribute labels (name=>label)
-	//  */
-	// public function attributeLabels()
-	// {
-	// 	return array(
-	// 		'pendaftaran_id' => 'Pendaftaran',
-	// 		'pendaftaran_nama' => 'Pendaftaran Nama',
-	// 		'pendaftaran_tempatLahir' => 'Pendaftaran Tempat Lahir',
-	// 		'pendaftaran_tglLahir' => 'Pendaftaran Tgl Lahir',
-	// 		'pendaftaran_alamat' => 'Pendaftaran Alamat',
-	// 		'created_date' => 'Created Date',
-	// 		'updated_date' => 'Updated Date',
-	// 	);
-	// }
-	//
-	// /**
-	//  * Retrieves a list of models based on the current search/filter conditions.
-	//  *
-	//  * Typical usecase:
-	//  * - Initialize the model fields with values from filter form.
-	//  * - Execute this method to get CActiveDataProvider instance which will filter
-	//  * models according to data in model fields.
-	//  * - Pass data provider to CGridView, CListView or any similar widget.
-	//  *
-	//  * @return CActiveDataProvider the data provider that can return the models
-	//  * based on the search/filter conditions.
-	//  */
-	// public function search()
-	// {
-	// 	// @todo Please modify the following code to remove attributes that should not be searched.
-	//
-	// 	$criteria=new CDbCriteria;
-	//
-	// 	$criteria->compare('pendaftaran_id',$this->pendaftaran_id);
-	// 	$criteria->compare('pendaftaran_nama',$this->pendaftaran_nama,true);
-	// 	$criteria->compare('pendaftaran_tempatLahir',$this->pendaftaran_tempatLahir,true);
-	// 	$criteria->compare('pendaftaran_tglLahir',$this->pendaftaran_tglLahir,true);
-	// 	$criteria->compare('pendaftaran_alamat',$this->pendaftaran_alamat,true);
-	// 	$criteria->compare('created_date',$this->created_date,true);
-	// 	$criteria->compare('updated_date',$this->updated_date,true);
-	//
-	// 	return new CActiveDataProvider($this, array(
-	// 		'criteria'=>$criteria,
-	// 	));
-	// }
+    public function actionGetDataPengunjung()
+    {
+        $query = "
+            SELECT * FROM ( SELECT DISTINCT(YEAR(pendaftaran_tglKunjungan)) AS tahun, count(*) AS jml FROM pendaftaran ) AS T LIMIT 5
+        ";
+        return Yii::app()->db->createCommand($query)->queryAll();
+    }    
 
 	/**
 	 * Returns the static model of the specified AR class.

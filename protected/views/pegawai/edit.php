@@ -1,5 +1,5 @@
 <?php
-$baseUrl            = Yii::app()->request->baseUrl;
+$baseUrl             = Yii::app()->request->baseUrl;
 $pegawai_id          = trim($pegawai['pegawai_id']);
 $pegawai_nik         = trim($pegawai['pegawai_nik']);
 $pegawai_nama        = trim($pegawai['pegawai_nama']);
@@ -7,9 +7,8 @@ $pegawai_telp        = trim($pegawai['pegawai_telp']);
 $pegawai_tempatLahir = trim($pegawai['pegawai_tempatLahir']);
 $pegawai_tglLahir    = $pegawai['pegawai_tglLahir'];
 $pegawai_alamat      = trim($pegawai['pegawai_alamat']);
-$pegawai_jk      = trim($pegawai['pegawai_jk']);
+$pegawai_jk          = trim($pegawai['pegawai_jk']);
 ?>
-<?php $baseUrl = Yii::app()->request->baseUrl; ?>
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -48,25 +47,25 @@ $pegawai_jk      = trim($pegawai['pegawai_jk']);
                 	<div class="col-lg-4">
                         <div class="form-group">
                             <label>NIK Pegawai</label>
-                            <input type="text" name="pegawai_nik" placeholder="Contoh: 1234567890123456" class="form-control" pattern="[0-9]+" maxlength="16" autofocus required value="<?= $pegawai_nik ?>">
+                            <input type="text" name="pegawai_nik" placeholder="Contoh: 1234567890123456" class="form-control" pattern="[0-9]+"  minlength="16" maxlength="16" autofocus required value="<?= $pegawai_nik ?>">
                         </div>
                 	</div>
                 	<div class="col-lg-4">
                         <div class="form-group">
                             <label>Nama Pegawai</label>
-                            <input type="text" name="pegawai_nama" placeholder="Contoh: Asep" class="form-control" pattern="[a-zA-Z .]+" maxlength="100" required value="<?= $pegawai_nama ?>">
+                            <input type="text" name="pegawai_nama" placeholder="Contoh: Asep" class="form-control" pattern="[a-zA-Z .]+"  minlength="2" maxlength="100" required value="<?= $pegawai_nama ?>">
                         </div>
                 	</div>
                 	<div class="col-lg-4">
                         <div class="form-group">
                             <label>Nomor Telpon</label>
-                            <input type="text" name="pegawai_telp" placeholder="Contoh: 081234567890" class="form-control" pattern="[0-9]+" maxlength="13" required value="<?= $pegawai_telp ?>">
+                            <input type="text" name="pegawai_telp" placeholder="Contoh: 081234567890" class="form-control" pattern="[0-9]+"  minlength="10" maxlength="13" required value="<?= $pegawai_telp ?>">
                         </div>
                 	</div>
                 	<div class="col-lg-4">
                         <div class="form-group">
                             <label>Tempat Lahir</label>
-                            <input type="text" name="pegawai_tempatLahir" placeholder="Contoh: Bandung" class="form-control" pattern="[a-zA-Z .]+" maxlength="50" required value="<?= $pegawai_tempatLahir ?>">
+                            <input type="text" name="pegawai_tempatLahir" placeholder="Contoh: Bandung" class="form-control" pattern="[a-zA-Z .]+"  minlength="5" maxlength="50" required value="<?= $pegawai_tempatLahir ?>">
                         </div>
                 	</div>
                 	<div class="col-lg-4">

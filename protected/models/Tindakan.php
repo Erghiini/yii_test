@@ -21,8 +21,7 @@ class Tindakan extends CActiveRecord
             INSERT INTO tindakan (
                 tindakan_nama
             ) VALUES (
-                '$tindakan_nama',
-                '$tindakan_tarif'
+                '$tindakan_nama'
             )
         ";
         return Yii::app()->db->createCommand($query)->query();
@@ -34,6 +33,19 @@ class Tindakan extends CActiveRecord
             SELECT *
             FROM tindakan
             WHERE tindakan_id = $id
+        ";
+        return Yii::app()->db->createCommand($query)->queryRow();
+    }
+
+    public function validateTindakanNamaById()
+    {
+        $tindakan_id   = htmlspecialchars($_POST['tindakan_id'], ENT_QUOTES);
+        $tindakan_nama = htmlspecialchars($_POST['tindakan_nama'], ENT_QUOTES);
+        $query = "
+            SELECT count(*) AS jml
+            FROM tindakan
+            WHERE tindakan_nama = '$tindakan_nama'
+                AND tindakan_id != '$tindakan_id'
         ";
         return Yii::app()->db->createCommand($query)->queryRow();
     }
