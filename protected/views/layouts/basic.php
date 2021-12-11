@@ -200,7 +200,7 @@ $session    = Yii::app()->session;
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= $baseUrl ?>/wilayah" class="nav-link <?= strtolower($controller) == 'laporan' ? 'active' : '' ?>">
+                            <a href="<?= $baseUrl ?>/laporan" class="nav-link <?= strtolower($controller) == 'laporan' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-chart-bar"></i>
                                 <p>
                                     Laporan
