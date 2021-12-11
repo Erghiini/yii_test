@@ -3831,3 +3831,22 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/yii_test/dashboard/getDataPengunjung
 ---
+2021/12/11 04:30:53 [error] [php] Undefined offset: 3 (C:\xampp\htdocs\yii_test\protected\views\pendaftaran\index.php:83)
+Stack trace:
+#0 C:\xampp\htdocs\yii_test\yii-1\framework\web\CBaseController.php(126): require()
+#1 C:\xampp\htdocs\yii_test\yii-1\framework\web\CBaseController.php(95): PendaftaranController->renderInternal()
+#2 C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php(872): PendaftaranController->renderFile()
+#3 C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php(785): PendaftaranController->renderPartial()
+#4 C:\xampp\htdocs\yii_test\protected\controllers\PendaftaranController.php(13): PendaftaranController->render()
+#5 C:\xampp\htdocs\yii_test\yii-1\framework\web\actions\CInlineAction.php(49): PendaftaranController->actionIndex()
+#6 C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php(286): PendaftaranController->runAction()
+#8 C:\xampp\htdocs\yii_test\yii-1\framework\web\CController.php(265): PendaftaranController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii_test\yii-1\framework\web\CWebApplication.php(282): PendaftaranController->run()
+#10 C:\xampp\htdocs\yii_test\yii-1\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii_test\yii-1\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\yii_test\index.php(13): CWebApplication->run()
+REQUEST_URI=/yii_test/pendaftaran
+in C:\xampp\htdocs\yii_test\protected\views\pendaftaran\index.php (83)
+in C:\xampp\htdocs\yii_test\protected\controllers\PendaftaranController.php (13)
+in C:\xampp\htdocs\yii_test\index.php (13)

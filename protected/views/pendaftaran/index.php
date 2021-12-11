@@ -52,7 +52,8 @@
 							<?php
                                 $listStatus = array(
                                     '1' => '<span class="badge badge-danger">Menunggu<br>Tindakan</span>',
-                                    '2' => '<span class="badge badge-info">Pembayaran</span>'
+                                    '2' => '<span class="badge badge-info">Pembayaran</span>',
+                                    '3' => '<span class="badge badge-success">Selesai</span>'
                                 );
 								$no = 0;
 								foreach ($pendaftaran as $data) {
