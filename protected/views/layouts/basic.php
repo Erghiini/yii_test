@@ -103,7 +103,7 @@ $session    = Yii::app()->session;
                         <li class="nav-header">
                             MASTER
                         </li>
-                        <?php if ($session['userlevel'] != 0): ?>
+                        <?php if ($session['userlevel'] == 0): ?>
                             <li class="nav-item">
                                 <a href="<?= $baseUrl ?>/wilayah" class="nav-link <?= strtolower($controller) == 'wilayah' ? 'active' : '' ?>">
                                     <i class="nav-icon fas fa-map-marked-alt"></i>
